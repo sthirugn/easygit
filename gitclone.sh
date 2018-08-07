@@ -1,20 +1,14 @@
 #!/bin/bash
+# Usage:
+# gitclone.sh satellite-clone git@github.com:sthirugn/satellite-clone.git https://github.com/RedHatSatellite/satellite-clone
 #Constants
 workspace="/home/suresh/hacking"
-
-#Get project info from the user
-echo "Enter the name of the project"
-read name
-echo "Enter the full path of the project to clone"
-read project
-echo "Enter the full path of the upstream project"
-read upstream
 
 #Perfrom git clone and add remote repository
 set -x
 cd "$workspace"
-git clone "$project" "$name"
-cd "$name"
-git remote add upstream "$upstream"
+git clone "$2" "$1"
+cd "$1"
+git remote add upstream "$3"
 git config core.filemode false
-echo "Success! Project is created at $projectfolder/$name"
+echo "Success! Project is created at $workspace/$1"
