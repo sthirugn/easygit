@@ -9,6 +9,9 @@ set -x
 cd "$workspace"
 git clone "$2" "$1"
 cd "$1"
-git remote add upstream "$3"
+if [ ! -z "$3" ] 
+ then
+  git remote add upstream "$3"
+fi
 git config core.filemode false
 echo "Success! Project is created at $workspace/$1"
